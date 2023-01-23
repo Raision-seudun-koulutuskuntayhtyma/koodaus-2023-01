@@ -1,4 +1,4 @@
-from pprint import pprint
+from pprint import pformat, pprint
 from time import ctime
 import time
 
@@ -16,3 +16,9 @@ esimerkki_kuvio = {
 }
 
 pprint(esimerkki_kuvio, sort_dicts=False)
+
+esimerkki_kuvio_muotoiltu_teksti = pformat(esimerkki_kuvio)
+
+# Muutetaan muotoiltu teksti isoiksi kirjaimiksi ja tulostetaan
+# Huom: \n  =  rivinvaihto
+print("Muotoiltu teksti:\n", esimerkki_kuvio_muotoiltu_teksti.upper())
