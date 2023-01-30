@@ -3,25 +3,27 @@ class Auto:
         self.rekisterinumero = rekisterinumero
         self.merkki = merkki
         self.malli = malli
+        self.vuosi = None
 
     def __str__(self) -> str:
-        # Merkkijonoja voi yhdistää plus-merkillä
-        teksti = "Auto: " + self.merkki + " " + self.malli + " (" + self.rekisterinumero + ")"
+        # Muotoillaan Auto-olio stringiksi
 
-        # tai f-stringillä:
-        teksti = f"Auto: {self.merkki} {self.malli} ({self.rekisterinumero})"
-
-        return teksti
-        
-
-
+        # Muodostetaan ensin "vuosi"-muuttujaan -95 -tyylinen stringi
+        #
+        #   Huom.  Terniärioperaattori:
+        #             A if EHTO else B
+        #          Valitsee arvon A jos EHTO on tosi, muuten arvon B
+        vuosi = f" -{self.vuosi % 100:02d}" if self.vuosi else ""
+        return f"{self.merkki} {self.malli}{vuosi} ({self.rekisterinumero})"
 
 
 volkkari = Auto("ABC-123", "Volkswagen", "Golf")
 saab = Auto("XYZ-456", "Saab", "En tiiä")
 opel = Auto("XXX-123", "Opel", "Astra")
 
-
+# Attribuutteja voi asettaa myös luokan ulkopuolelta
+volkkari.vuosi = 1986
+opel.vuosi = 2005
 
 print(volkkari)
 print(saab)
