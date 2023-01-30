@@ -13,6 +13,10 @@ class Auto:
         #   Huom.  Terniärioperaattori:
         #             A if EHTO else B
         #          Valitsee arvon A jos EHTO on tosi, muuten arvon B
+        #   Huom2. % = jakojäännös-operaattori
+        #          X % Y palauttaa arvon joka jää yli kun X jaetaan Y:llä
+        #          (jos X jaettuna Y:llä menee tasan, niin jakojäännös on 0)
+
         vuosi = f" -{self.vuosi % 100:02d}" if self.vuosi else ""
         return f"{self.merkki} {self.malli}{vuosi} ({self.rekisterinumero})"
 
